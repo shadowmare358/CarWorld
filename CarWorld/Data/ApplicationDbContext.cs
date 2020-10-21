@@ -13,6 +13,8 @@ namespace CarWorld.Data
             : base(options)
         {
         }
-        public DbSet<CarWorld.Models.ImageModel> ImageModel { get; set; }
+        public DbSet<CarWorld.Models.CarModel> CarModel { get; set; }
+        public DbSet<CarWorld.Models.Rating> Ratings { get; set; }
+        public DbSet<CarWorld.Models.RatingSort> RatingSort { get; set; }
     }
 }

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<CarWorld.Models.Rating>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<title>Car Configurator</title>
+<div class="carSlider">
+    <ul id="carSliderList">
+        <li class="listItem" id="list1"></li>
+        <li class="listItem" id="list2"></li>
+        <li class="listItem" id="list3"></li>
+        <li class="listItem" id="list4"></li>
+    </ul>
+</div>
+<section>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae facilis omnis maiores voluptate minima architecto quia corrupti laborum vitae, repudiandae quaerat repellat perferendis, nostrum voluptas, aspernatur ab excepturi magnam tempore sint numquam ipsam eveniet id. Et rerum a consectetur sapiente!</section>
+<h3>Change color</h3>
+<div class="menu">
+    <button menu-buttonY>YELLOW</button>
+    <button menu-buttonG>GREEN</button>
+    <button menu-buttonB>BLUE</button>
+</div>
+<h3>Click and drag mouse to turn model, scroll for zoom in and out</h3>
+<div id="carRender">
+</div>
+<img class="pointer" src="images/mousepointer.svg" alt="" srcset="">
+<script src=~/js/three.js></script>
+<script src=~/js/GLTFLoader.js></script>
+<script src=~/js/OBJLoader.js></script>
+<script src=~/js/MTLLoader.js></script>
+<script src=~/js/OrbitControls.js></script>
+<script src=~/js/threejsscene.js></script>
+<script src=~/js/slider.js></script>

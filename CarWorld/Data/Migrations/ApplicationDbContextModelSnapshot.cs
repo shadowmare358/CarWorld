@@ -19,7 +19,7 @@ namespace CarWorld.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CarWorld.Models.ImageModel", b =>
+            modelBuilder.Entity("CarWorld.Models.CarModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -42,7 +42,54 @@ namespace CarWorld.Data.Migrations
 
                     b.HasIndex("UserID");
 
-                    b.ToTable("ImageModel");
+                    b.ToTable("CarModel");
+                });
+
+            modelBuilder.Entity("CarWorld.Models.Rating", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CarID")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Score")
+                        .HasColumnType("float");
+
+                    b.Property<string>("UserID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("Ratings");
+                });
+
+            modelBuilder.Entity("CarWorld.Models.RatingSort", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CarID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RatingID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarID");
+
+                    b.HasIndex("RatingID");
+
+                    b.ToTable("RatingSort");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -245,11 +292,35 @@ namespace CarWorld.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("CarWorld.Models.ImageModel", b =>
+            modelBuilder.Entity("CarWorld.Models.CarModel", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()
                         .HasForeignKey("UserID");
+                });
+
+            modelBuilder.Entity("CarWorld.Models.Rating", b =>
+                {
+                    b.HasOne("CarWorld.Models.CarModel", "Car")
+                        .WithMany()
+                        .HasForeignKey("CarID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserID");
+                });
+
+            modelBuilder.Entity("CarWorld.Models.RatingSort", b =>
+                {
+                    b.HasOne("CarWorld.Models.CarModel", "Car")
+                        .WithMany()
+                        .HasForeignKey("CarID");
+
+                    b.HasOne("CarWorld.Models.Rating", "Rating")
+                        .WithMany()
+                        .HasForeignKey("RatingID");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

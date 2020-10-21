@@ -1,0 +1,68 @@
+﻿@model IEnumerable<CarWorld.Models.Rating>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>My Grades</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Score)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car.Title)
+            </td>
+            <td>
+                @if (item.Car.ImageName == null)
+                {
+                    <img src="@("~/images/placeholder.jpg")" asp-append-version="true" width="250" height="200" />
+                }
+                else
+                {
+                    <img src="@("~/images/"+item.Car.ImageName)" asp-append-version="true" width="250" height="200" />
+                }
+            </td>
+            <td>
+                @{
+                    var chk = "checked";
+                    var checked1 = item.Score >= 1 ? chk : null;
+                    var checked2 = item.Score >= 2 ? chk : null;
+                    var checked3 = item.Score >= 3 ? chk : null;
+                    var checked4 = item.Score >= 4 ? chk : null;
+                    var checked5 = item.Score >= 5 ? chk : null;
+                    var checked6 = item.Score >= 6 ? chk : null;
+                    var checked7 = item.Score >= 7 ? chk : null;
+                    var checked8 = item.Score >= 8 ? chk : null;
+                    var checked9 = item.Score >= 9 ? chk : null;
+                    var checked10 = item.Score == 10 ? chk : null;
+                }
+                <span class="fa fa-star @checked1"></span>
+                <span class="fa fa-star @checked2"></span>
+                <span class="fa fa-star @checked3"></span>
+                <span class="fa fa-star @checked4"></span>
+                <span class="fa fa-star @checked5"></span>
+                <span class="fa fa-star @checked6"></span>
+                <span class="fa fa-star @checked7"></span>
+                <span class="fa fa-star @checked8"></span>
+                <span class="fa fa-star @checked9"></span>
+                <span class="fa fa-star @checked10"></span>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

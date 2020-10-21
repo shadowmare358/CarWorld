@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "PCQnUGIyyJksngJRULpCI5ZKjb9DFcpuXVkc1dWaOIQbNbD9sEbqZeoyP0eS42PNStMe+Ay7z/pY4JOqlJm0Uw==",
+  "dgSpecHash": "jXuiVd66kCMqF3m96Gj7jm5ZxdcdUyA42EoNiSXeZwT5NuLs6TtoFIygaOev6RsaqGgMEGUYCkhm1wcUeD8Z3w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Shadowmare\\source\\repos\\CarWorld\\CarWorld\\CarWorld.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Shadowmare\\.nuget\\packages\\dumpextensions\\2.0.0\\dumpextensions.2.0.0.nupkg.sha512",
+    "C:\\Users\\Shadowmare\\.nuget\\packages\\gltf2loader\\1.0.0\\gltf2loader.1.0.0.nupkg.sha512",
     "C:\\Users\\Shadowmare\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.7\\microsoft.aspnetcore.cryptography.internal.3.1.7.nupkg.sha512",
     "C:\\Users\\Shadowmare\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.7\\microsoft.aspnetcore.cryptography.keyderivation.3.1.7.nupkg.sha512",
     "C:\\Users\\Shadowmare\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\3.1.7\\microsoft.aspnetcore.diagnostics.entityframeworkcore.3.1.7.nupkg.sha512",

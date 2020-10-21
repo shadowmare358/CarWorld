@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -6,7 +6,34 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\gltf\**" />
+    <Content Remove="wwwroot\gltf\**" />
+    <EmbeddedResource Remove="wwwroot\gltf\**" />
+    <None Remove="wwwroot\gltf\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Gltf\Porsche_911_GT2.obj" />
+    <Content Include="Gltf\scene.bin" />
+    <Content Include="Gltf\scene.gltf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\examples\3d-obj-loader\assets\OBJLoader.js" />
+    <None Include="wwwroot\js\examples\3d-obj-loader\assets\r2-d2.mtl" />
+    <None Include="wwwroot\js\examples\3d-obj-loader\assets\r2-d2.obj" />
+    <None Include="wwwroot\js\examples\3d-obj-loader\scripts.js" />
+    <None Include="wwwroot\Images\car1.PNG" />
+    <None Include="wwwroot\Images\car2.PNG" />
+    <None Include="wwwroot\Images\car3.PNG" />
+    <None Include="wwwroot\Images\car4.png" />
+    <None Include="wwwroot\js\MTLLoader.js" />
+    <None Include="wwwroot\js\threejsscene.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="DumpExtensions" Version="2.0.0" />
+    <PackageReference Include="glTF2Loader" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.7" />
@@ -17,10 +44,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 
 </Project>

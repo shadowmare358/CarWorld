@@ -11,6 +11,19 @@
           "lib/netcoreapp2.0/DumpExtensions.dll": {}
         }
       },
+      "glTF2Loader/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/netstandard1.3/glTFLoader.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/glTFLoader.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.7": {
         "type": "package",
         "compile": {
@@ -2904,6 +2917,19 @@
         "lib/net45/DumpExtensions.dll",
         "lib/netcoreapp2.0/DumpExtensions.dll",
         "lib/netstandard2.0/DumpExtensions.dll"
+      ]
+    },
+    "glTF2Loader/1.0.0": {
+      "sha512": "nG9kfhDAajEcpTwa+pnYm0S+UKWXbw26eCaYqzGfZqofSNq/czoT3TexW3dCimXIfyMyCxCkYNvUJanV+DTC+w==",
+      "type": "package",
+      "path": "gltf2loader/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "gltf2loader.1.0.0.nupkg.sha512",
+        "gltf2loader.nuspec",
+        "lib/net452/glTFLoader.dll",
+        "lib/netstandard1.3/glTFLoader.dll"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/3.1.7": {
@@ -9208,7 +9234,8 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.8",
       "Microsoft.EntityFrameworkCore.Sqlite >= 3.1.8",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.8",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.4"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.4",
+      "glTF2Loader >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -9285,6 +9312,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[3.1.4, )"
+          },
+          "glTF2Loader": {
+            "target": "Package",
+            "version": "[1.0.0, )"
           }
         },
         "imports": [

@@ -13,6 +13,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace CarWorld
 {
@@ -34,6 +37,7 @@ namespace CarWorld
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            services.AddDirectoryBrowser();
             services.AddRazorPages();
             services.AddHttpContextAccessor();
         }
@@ -41,6 +45,8 @@ namespace CarWorld
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            app.UseStaticFiles();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -53,8 +59,21 @@ namespace CarWorld
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            FileExtensionContentTypeProvider provider = new FileExtensionContentTypeProvider();
 
+            // The MIME type for .GLB and .GLTF files are registered with IANA under the 'model' heading
+            // https://www.iana.org/assignments/media-types/media-types.xhtml#model
+            provider.Mappings[".glb"] = "model/gltf+binary";
+            provider.Mappings[".gltf"] = "model/gltf+json";
+            provider.Mappings[".bin"] = "model/binary";
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                   Path.Combine(Directory.GetCurrentDirectory(), "gltf")),
+                RequestPath = "/gltf",
+                ContentTypeProvider = provider
+            });
             app.UseRouting();
 
             app.UseAuthentication();
